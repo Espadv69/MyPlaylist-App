@@ -1,0 +1,21 @@
+{
+  "name": "myplaylist-app",
+  "version": "1.0.0",
+  "description": "A full-stack playlist manager app using React, Node.js, Express, and MongoDB",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "playlist",
+    "full-stack",
+    "react",
+    "node",
+    "express",
+    "mongodb",
+    "cors"
+  ],
+  "author": "Aitor",
+  "license": "ISC",
+  "type": "commonjs"
+}
