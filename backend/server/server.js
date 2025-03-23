@@ -1,6 +1,6 @@
 // Routes
-const home = require('./routes/const.js').home
-const myPlaylist = require('./routes/const.js').myPlaylist
+const homeRoute = require('./routes/const.js').home
+const myPlaylistRoute = require('./routes/const.js').myPlaylist
 /* --------------- */
 
 const express = require('express')
@@ -30,8 +30,19 @@ const connectDB = async () => {
 }
 
 // Entry point
-app.get(home, async (req, res) => {
+app.get(homeRoute, async (req, res) => {
   res.send('Welcome to the backend server 🤝')
+})
+
+// API endpoint
+app.get(myPlaylistRoute, async (req, res) => {
+  try {
+    const playlist = await Playlist.find()
+    res.status(200).json(playlist)
+  } catch (err) {
+    console.error('Error fetching playlist:', err)
+    res.status(500).json({ error: 'Failed to fetch playlist' })
+  }
 })
 
 // Start Server
