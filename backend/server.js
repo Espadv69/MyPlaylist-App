@@ -13,12 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 // MongoDB connection
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI)
-    console.log('🟢 Connected to MongoDB')
-  } catch (err) {
-    console.error('🔴 Unable to connect to MongoDB', err)
-    process.exit(1)
-  }
-}
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected ✅'))
+  .catch((err) => console.error('MongoDB connection failed ❌', err))
