@@ -146,7 +146,7 @@ const MyPlaylist = () => {
             ))}
           </ul>
         ) : (
-          <p style={{ color: 'royalblue' }}>No songs in the playlist</p>
+          <p>No songs in the playlist</p>
         )}
       </footer>
     </section>
