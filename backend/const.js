@@ -1,2 +1,5 @@
-export const home = '/'
-export const myPlaylist = '/api/playlist'
+const home = '/'
+const myPlaylist = '/api/playlist'
+
+exports.home = home
+exports.myPlaylist = myPlaylist
