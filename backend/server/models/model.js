@@ -23,7 +23,7 @@ const PlaylistSchema = new mongoose.Schema({
   },
   youtubeId: {
     type: String,
-    required: false,
+    default: undefined,
   },
 })
 
