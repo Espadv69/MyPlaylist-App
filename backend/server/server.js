@@ -45,6 +45,30 @@ app.get(myPlaylistRoute, async (req, res) => {
   }
 })
 
+// Add to playlist Endpoint
+app.post(myPlaylistRoute, async (req, res) => {
+  try {
+    const { title, artist, genre, album, duration, youtubeId } = req.body
+    if (!title || !artist || !genre || !album || !duration || !youtubeId) {
+      return res.status(400).json({ error: 'All fields are required' })
+    }
+
+    const newSong = new Playlist({
+      title,
+      artist,
+      genre,
+      album,
+      duration,
+      youtubeId,
+    })
+    await newSong.save()
+    res.status(201).json(newSong)
+  } catch (err) {
+    console.error('Error adding to playlist:', err)
+    res.status(500).json({ error: 'Failed to add to playlist' })
+  }
+})
+
 // Start Server
 const startServer = async () => {
   await connectDB()
