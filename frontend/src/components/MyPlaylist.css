@@ -51,3 +51,78 @@
 .playlist--form button:hover {
   background-color: #39597d;
 }
+
+.playlist--footer {
+  margin-top: 2rem;
+  height: 300px;
+  overflow-y: auto;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.playlist--footer ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.playlist--footer li {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.playlist--footer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.playlist--footer::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.playlist--footer::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+.playlist--footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.playlist--footer p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.playlist--footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.playlist--footer a:hover {
+  text-decoration: underline;
+}
+
+.playlist--footer p strong {
+  color: #333;
+}
+
+.playlist--footer p:last-child {
+  font-style: italic;
+  color: #888;
+}
+
+.playlist--footer p[style] {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #ff4d4d;
+}
