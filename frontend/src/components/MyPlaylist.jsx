@@ -12,6 +12,7 @@ const MyPlaylist = () => {
   const [duration, setDuration] = useState('')
   const [youtubeId, setYoutubeId] = useState('')
 
+  // Get playlist from the server
   const fetchPlaylist = async () => {
     try {
       const response = await fetch(API_URL)
@@ -24,6 +25,7 @@ const MyPlaylist = () => {
     }
   }
 
+  // Render the playlist when the component mounts
   useEffect(() => {
     fetchPlaylist()
   }, [])
