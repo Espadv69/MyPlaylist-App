@@ -43,4 +43,9 @@ const cleanUp = async () => {
   } catch (err) {
     console.error('❌ MongoDB connection failed to close.', err)
   }
+
+  server.close(() => {
+    console.log('✅ Server shut down.')
+    process.exit(0)
+  })
 }
