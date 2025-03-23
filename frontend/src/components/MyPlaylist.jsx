@@ -14,8 +14,14 @@ const MyPlaylist = () => {
 
   const fetchPlaylist = async () => {
     try {
-      const response = await fetch(/* Add */)
-    } catch (err) {}
+      const response = await fetch(API_URL)
+      if (!response.ok) throw new Error('Server error occurred 🛑')
+
+      const data = await response.json()
+      setPlaylist(data)
+    } catch (err) {
+      console.error('Error loading playlist:', err)
+    }
   }
 
   useEffect(() => {
