@@ -48,8 +48,10 @@ app.get(myPlaylistRoute, async (req, res) => {
 // Add to playlist Endpoint
 app.post(myPlaylistRoute, async (req, res) => {
   try {
+    console.log('Request body:', req.body)
+
     const { title, artist, genre, album, duration, youtubeId } = req.body
-    if (!title || !artist || !genre || !album || !duration || !youtubeId) {
+    if (!title || !artist || !genre || !album || !duration) {
       return res.status(400).json({ error: 'All fields are required' })
     }
 
@@ -59,7 +61,7 @@ app.post(myPlaylistRoute, async (req, res) => {
       genre,
       album,
       duration,
-      youtubeId,
+      youtubeId: youtubeId || undefined,
     })
     await newSong.save()
     res.status(201).json(newSong)
