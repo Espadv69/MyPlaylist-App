@@ -27,6 +27,12 @@ const MyPlaylist = () => {
   useEffect(() => {
     fetchPlaylist()
   }, [])
+
+  return (
+    <section className="my-playlist">
+      {playlist.length > 0 ? '' : <p>No songs in the playlist</p>}
+    </section>
+  )
 }
 
 export default MyPlaylist
