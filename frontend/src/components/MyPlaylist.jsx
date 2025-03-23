@@ -69,13 +69,13 @@ const MyPlaylist = () => {
   }, [])
 
   return (
-    <section className="my-playlist">
-      <header>
+    <section className="playlist--container">
+      <header className="playlist--header">
         <h1>My Playlist</h1>
       </header>
 
       <main>
-        <div className="add-song">
+        <div className="playlist--form">
           <input
             type="text"
             placeholder="Title"
@@ -116,20 +116,37 @@ const MyPlaylist = () => {
         </div>
       </main>
 
-      <footer>
+      <footer className="playlist--footer">
         {playlist.length > 0 ? (
-          playlist.map((song) => (
-            <div key={song.title} className="song">
-              <h3>{song.title}</h3>
-              <p>{song.artist}</p>
-              <p>{song.genre}</p>
-              <p>{song.album}</p>
-              <p>{song.duration}</p>
-              <p>{song.youtubeId}</p>
-            </div>
-          ))
+          <ul>
+            {playlist.map((song) => (
+              <li key={song._id}>
+                <h3>{song.title}</h3>
+                <p>
+                  <strong>Artist:</strong> {song.artist}
+                </p>
+                <p>
+                  <strong>Genre:</strong> {song.genre}
+                </p>
+                <p>
+                  <strong>Album:</strong> {song.album}
+                </p>
+                <p>
+                  <strong>Duration:</strong> {song.duration}
+                </p>
+                {song.youtubeId && (
+                  <p>
+                    <strong>YouTube ID:</strong>{' '}
+                    <a href={song.youtubeId} target="_blank" rel="noopener">
+                      {song.youtubeId}
+                    </a>
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
         ) : (
-          <p>No songs in the playlist</p>
+          <p style={{ color: 'red' }}>No songs in the playlist</p>
         )}
       </footer>
     </section>
