@@ -17,3 +17,8 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected ✅'))
   .catch((err) => console.error('MongoDB connection failed ❌', err))
+
+// Entry point
+app.get('/', async (req, res) => {
+  res.send('Welcome to the backend server 🤝')
+})
