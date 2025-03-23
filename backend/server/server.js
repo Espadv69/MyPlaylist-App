@@ -49,3 +49,7 @@ const cleanUp = async () => {
     process.exit(0)
   })
 }
+
+// Handle signals
+process.on('SIGINT', cleanUp)
+process.on('SIGTERM', cleanUp)
