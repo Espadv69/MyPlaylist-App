@@ -28,7 +28,7 @@ app.get(home, async (req, res) => {
   res.send('Welcome to the backend server 🤝')
 })
 
-// Listen
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT} 🚀`)
-})
+// Server
+const server = app.listen(PORT, () =>
+  console.log(`🚀 Server running on http://localhost:${PORT}`),
+)
