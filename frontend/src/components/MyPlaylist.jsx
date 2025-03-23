@@ -25,6 +25,44 @@ const MyPlaylist = () => {
     }
   }
 
+  // Add a song to the playlist
+  const addToPlaylist = async () => {
+    if (!title || !artist || !genre || !album || !duration) return
+
+    const newSong = {
+      title: title,
+      artist: artist,
+      genre: genre,
+      album: album,
+      duration: duration,
+      youtubeId: youtubeId,
+    }
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newSong),
+      })
+
+      if (!response.ok) throw new Error('Failed to add song to playlist 🛑')
+
+      const data = await response.json()
+      setPlaylist((prevList) => [...prevList, data])
+
+      setTitle('')
+      setArtist('')
+      setGenre('')
+      setAlbum('')
+      setDuration('')
+      setYoutubeId('')
+    } catch (err) {
+      console.error('Error adding song to playlist:', err)
+    }
+  }
+
   // Render the playlist when the component mounts
   useEffect(() => {
     fetchPlaylist()
