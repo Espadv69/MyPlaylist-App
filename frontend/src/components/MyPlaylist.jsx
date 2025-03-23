@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './MyPlaylist.css'
 
-const API_URL = 'http://localhost:5000/api/playlist'
+const API_URL = 'http://localhost:5000/api/playlists'
 
 const MyPlaylist = () => {
   const [playlist, setPlaylist] = useState([])
@@ -70,7 +70,68 @@ const MyPlaylist = () => {
 
   return (
     <section className="my-playlist">
-      {playlist.length > 0 ? '' : <p>No songs in the playlist</p>}
+      <header>
+        <h1>My Playlist</h1>
+      </header>
+
+      <main>
+        <div className="add-song">
+          <input
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Artist"
+            value={artist}
+            onChange={(e) => setArtist(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Genre"
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Album"
+            value={album}
+            onChange={(e) => setAlbum(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Duration"
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="YouTube ID"
+            value={youtubeId}
+            onChange={(e) => setYoutubeId(e.target.value)}
+          />
+          <button onClick={addToPlaylist}>Add Song</button>
+        </div>
+      </main>
+
+      <footer>
+        {playlist.length > 0 ? (
+          playlist.map((song) => (
+            <div key={song.title} className="song">
+              <h3>{song.title}</h3>
+              <p>{song.artist}</p>
+              <p>{song.genre}</p>
+              <p>{song.album}</p>
+              <p>{song.duration}</p>
+              <p>{song.youtubeId}</p>
+            </div>
+          ))
+        ) : (
+          <p>No songs in the playlist</p>
+        )}
+      </footer>
     </section>
   )
 }
