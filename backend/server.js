@@ -1,3 +1,8 @@
+// Routes
+const home = require('./const.js').home
+const myPlaylist = require('./const.js').myPlaylist
+/* --------------- */
+
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -19,7 +24,7 @@ mongoose
   .catch((err) => console.error('MongoDB connection failed ❌', err))
 
 // Entry point
-app.get('/', async (req, res) => {
+app.get(home, async (req, res) => {
   res.send('Welcome to the backend server 🤝')
 })
 
