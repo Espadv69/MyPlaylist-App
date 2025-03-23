@@ -1,7 +1,9 @@
 # MyPlaylist-App 🎵🎶
+
 A full-stack playlist manager application built with React, Node.js, Express, and MongoDB. This app allows users to create and manage their playlists. 🎧
 
 ## Features ✨
+
 - Create Playlists: Easily create new playlists. 📜
 
 - Add Songs: Add songs to your playlists with song title, artist, and album details. 🎵
@@ -11,6 +13,7 @@ A full-stack playlist manager application built with React, Node.js, Express, an
 - Responsive Design: Works seamlessly on both desktop and mobile devices. 📱💻
 
 ## Technologies Used 💻
+
 - **Frontend**: React, Vite
 
 - **Backend**: Node.js, Express
@@ -24,11 +27,13 @@ A full-stack playlist manager application built with React, Node.js, Express, an
 ## Installation 🚀
 
 ### Prerequisites 🛠️
+
 - Node.js (v20 or higher)
 
 - MongoDB (locally or using a service like MongoDB Atlas)
 
 ### Clone the Repository
+
 Clone the repository to your local machine:
 
 ```bash
@@ -37,6 +42,7 @@ cd MyPlaylist-App
 ```
 
 ### Install Dependencies
+
 1. **Backend**: Navigate to the backend folder and install the dependencies.
 
 ```bash
@@ -52,18 +58,21 @@ npm install
 ```
 
 ## Environment Variables 🔑
+
 Create a **.env** file in the **backend** folder with the following variables:
 
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 
 ## Running the App 🎉
+
 ### Run **backend**:
 
 ```bash
 cd backend
 node server.js
 ```
+
 or from root folder
 
 ```bash
@@ -78,6 +87,7 @@ npm run dev
 ```
 
 ## Usage 📚
+
 - Create Playlists: From the homepage, you can create a new playlist by entering a name and description. 🎨
 
 - Add Songs: After creating a playlist, you can add songs with details like song name, artist, and album. 🎶
@@ -85,6 +95,7 @@ npm run dev
 - Edit/Delete: Manage your playlists and songs by editing or deleting them as needed. ✂️
 
 ## Contributing 🤝
+
 We welcome contributions to improve the project! To contribute:
 
 1. Fork the repository. 🍴
@@ -98,4 +109,5 @@ We welcome contributions to improve the project! To contribute:
 5. Create a new Pull Request. 🔄
 
 ## License 📜
+
 This project is licensed under the ISC License.
