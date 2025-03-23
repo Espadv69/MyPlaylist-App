@@ -126,3 +126,67 @@
   font-size: 1.2rem;
   color: #ff4d4d;
 }
+
+@media (prefers-color-scheme: dark) {
+  .playlist--container {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+  }
+
+  .playlist--header h1 {
+    color: #e6e6e6;
+  }
+
+  .playlist--form input {
+    background-color: #333;
+    color: #f1f1f1;
+    border: 1px solid #555;
+  }
+
+  .playlist--form input:focus {
+    border-color: #66b3ff;
+    background-color: #444;
+  }
+
+  .playlist--form button {
+    background-color: #4e6b88;
+  }
+
+  .playlist--form button:hover {
+    background-color: #39597d;
+  }
+
+  .playlist--footer {
+    background-color: #282828;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
+
+  .playlist--footer ul {
+    background-color: #333;
+  }
+
+  .playlist--footer li {
+    background-color: #444;
+  }
+
+  .playlist--footer h3,
+  .playlist--footer p {
+    color: #e0e0e0;
+  }
+
+  .playlist--footer a {
+    color: #66b3ff;
+  }
+
+  .playlist--footer a:hover {
+    color: #3382b6;
+  }
+
+  .playlist--footer p strong {
+    color: #e0e0e0;
+  }
+
+  .playlist--footer p:last-child {
+    color: #b0b0b0;
+  }
+}
