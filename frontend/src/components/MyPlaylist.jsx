@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './MyPlaylist.css'
 
 const MyPlaylist = () => {
@@ -9,6 +9,12 @@ const MyPlaylist = () => {
   const [album, setAlbum] = useState('')
   const [duration, setDuration] = useState('')
   const [youtubeId, setYoutubeId] = useState('')
+
+  const fetchPlaylist = async () => {}
+
+  useEffect(() => {
+    fetchPlaylist()
+  }, [])
 }
 
 export default MyPlaylist
