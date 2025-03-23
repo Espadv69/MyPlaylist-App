@@ -17,39 +17,51 @@ const PORT = process.env.PORT
 app.use(cors())
 app.use(express.json())
 
-// MongoDB connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB connected ✅'))
-  .catch((err) => console.error('MongoDB connection failed ❌', err))
+// MongoDB Connection
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI)
+    console.log('🟢 Connected to MongoDB')
+  } catch (err) {
+    console.error('🔴 MongoDB Connection Error:', err)
+    process.exit(1)
+  }
+}
 
 // Entry point
 app.get(home, async (req, res) => {
   res.send('Welcome to the backend server 🤝')
 })
 
-// Server
-const server = app.listen(PORT, () =>
-  console.log(`🚀 Server running on http://localhost:${PORT}`),
-)
+// Start Server
+const startServer = async () => {
+  await connectDB()
 
-// CleanUp server
-const cleanUp = async () => {
-  console.log('\n🔻 Closing server...')
+  const PORT = process.env.PORT || 5000
+  const server = app.listen(PORT, () =>
+    console.log(`🚀 Server running on http://localhost:${PORT}`),
+  )
 
-  try {
-    await mongoose.connection.close()
-    console.log('🗑️ MongoDB connection closed.')
-  } catch (err) {
-    console.error('❌ MongoDB connection failed to close.', err)
+  // CleanUp function
+  const cleanUp = async () => {
+    console.log('\n🔻 Closing server...')
+
+    try {
+      await mongoose.connection.close()
+      console.log('🗑️ MongoDB connection closed.')
+    } catch (err) {
+      console.error('❌ MongoDB connection failed to close.', err)
+    }
+
+    server.close(() => {
+      console.log('✅ Server shut down.')
+      process.exit(0)
+    })
   }
 
-  server.close(() => {
-    console.log('✅ Server shut down.')
-    process.exit(0)
-  })
+  // Handle termination signals
+  process.on('SIGINT', cleanUp)
+  process.on('SIGTERM', cleanUp)
 }
 
-// Handle signals
-process.on('SIGINT', cleanUp)
-process.on('SIGTERM', cleanUp)
+startServer()
