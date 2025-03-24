@@ -116,9 +116,9 @@
   color: #333;
 }
 
-.playlist--footer p:last-child {
+.playlist--footer .id {
   font-style: italic;
-  color: #888;
+  color: #3f96af;
 }
 
 .playlist--footer p[style] {
