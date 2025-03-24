@@ -171,6 +171,7 @@ const MyPlaylist = () => {
                     </a>
                   </p>
                 )}
+                <button onClick={() => confirmDelete(song._id)}>Delete</button>
               </li>
             ))}
           </ul>
@@ -178,6 +179,18 @@ const MyPlaylist = () => {
           <p>No songs in the playlist</p>
         )}
       </footer>
+
+      {showModal && (
+        <div className="modal">
+          <div className="modal--content">
+            <h2>Are you sure you want to delete this song?</h2>
+            <div className="modal--actions">
+              <button onClick={deleteSong}>Yes</button>
+              <button onClick={() => setShowModal(false)}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
