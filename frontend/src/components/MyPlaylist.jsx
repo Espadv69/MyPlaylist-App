@@ -71,6 +71,27 @@ const MyPlaylist = () => {
     setShowModal(true)
   }
 
+  // Delete a song from the playlist
+  const deleteSong = async () => {
+    if (!songToDelete) return
+
+    try {
+      const response = await fetch(`${API_URL}/${songToDelete}`, {
+        method: 'DELETE',
+      })
+
+      if (!response.ok) throw new Error('Failed to delete song 🛑')
+
+      setPlaylist((prevList) =>
+        prevList.filter((song) => song._id !== songToDelete),
+      )
+      setShowModal(false)
+      setSongToDelete(null)
+    } catch (err) {
+      console.error('Error deleting song:', err)
+    }
+  }
+
   // Render the playlist when the component mounts
   useEffect(() => {
     fetchPlaylist()
