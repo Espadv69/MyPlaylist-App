@@ -29,7 +29,7 @@ const MyPlaylist = () => {
 
   // Add a song to the playlist
   const addToPlaylist = async () => {
-    if (!title || !artist || !genre || !album || !duration) return
+    if (!title || !artist || !genre) return
 
     const newSong = {
       title: title,
@@ -107,37 +107,37 @@ const MyPlaylist = () => {
         <div className="playlist--form">
           <input
             type="text"
-            placeholder="Title"
+            placeholder="Title (required)"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Artist"
+            placeholder="Artist (required)"
             value={artist}
             onChange={(e) => setArtist(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Genre"
+            placeholder="Genre (required)"
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Album"
+            placeholder="Album (optional)"
             value={album}
             onChange={(e) => setAlbum(e.target.value)}
           />
           <input
             type="text"
-            placeholder="Duration"
+            placeholder="Duration (optional)"
             value={duration}
             onChange={(e) => setDuration(e.target.value)}
           />
           <input
             type="text"
-            placeholder="YouTube ID"
+            placeholder="YouTube ID (optional)"
             value={youtubeId}
             onChange={(e) => setYoutubeId(e.target.value)}
           />
@@ -157,16 +157,25 @@ const MyPlaylist = () => {
                 <p>
                   <strong>Genre:</strong> {song.genre}
                 </p>
-                <p>
-                  <strong>Album:</strong> {song.album}
-                </p>
-                <p>
-                  <strong>Duration:</strong> {song.duration}
-                </p>
+                {song.album && (
+                  <p>
+                    <strong>Album:</strong> {song.album}
+                  </p>
+                )}
+                {song.duration && (
+                  <p>
+                    <strong>Duration:</strong> {song.duration}
+                  </p>
+                )}
                 {song.youtubeId && (
                   <p>
                     <strong>YouTube ID:</strong>{' '}
-                    <a href={song.youtubeId} target="_blank" rel="noopener">
+                    <a
+                      className="id"
+                      href={song.youtubeId}
+                      target="_blank"
+                      rel="noopener"
+                    >
                       {song.youtubeId}
                     </a>
                   </p>
