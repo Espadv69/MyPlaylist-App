@@ -76,7 +76,7 @@ node server.js
 or from root folder
 
 ```bash
-start
+npm start
 ```
 
 ### Run **frontend**:
