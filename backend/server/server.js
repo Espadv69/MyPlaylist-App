@@ -52,7 +52,7 @@ app.post(myPlaylistRoute, async (req, res) => {
     console.log('Request body:', req.body)
 
     const { title, artist, genre, album, duration, youtubeId } = req.body
-    if (!title || !artist || !genre || !album || !duration) {
+    if (!title || !artist || !genre) {
       return res.status(400).json({ error: 'All fields are required' })
     }
 
@@ -60,8 +60,8 @@ app.post(myPlaylistRoute, async (req, res) => {
       title,
       artist,
       genre,
-      album,
-      duration,
+      album: album || undefined,
+      duration: duration || undefined,
       youtubeId: youtubeId || undefined,
     })
     await newSong.save()
