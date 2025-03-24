@@ -111,3 +111,7 @@ We welcome contributions to improve the project! To contribute:
 ## License 📜
 
 This project is licensed under the ISC License.
+
+## Screenshot
+![Project Preview](/myPlaylist.png)
+![Project Modal Preview](/myPlaylistModal.png)
