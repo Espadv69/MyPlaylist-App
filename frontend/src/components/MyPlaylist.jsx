@@ -11,6 +11,8 @@ const MyPlaylist = () => {
   const [album, setAlbum] = useState('')
   const [duration, setDuration] = useState('')
   const [youtubeId, setYoutubeId] = useState('')
+  const [showModal, setShowModal] = useState(false)
+  const [songToDelete, setSongToDelete] = useState(null)
 
   // Get playlist from the server
   const fetchPlaylist = async () => {
