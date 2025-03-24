@@ -1,6 +1,7 @@
 // Routes
 const homeRoute = require('./routes/const.js').home
 const myPlaylistRoute = require('./routes/const.js').myPlaylist
+const myPlaylistRouteID = require('./routes/const.js').myPlaylistRouteID
 /* --------------- */
 
 const express = require('express')
@@ -70,6 +71,9 @@ app.post(myPlaylistRoute, async (req, res) => {
     res.status(500).json({ error: 'Failed to add to playlist' })
   }
 })
+
+// Delete from playlist Endpoint
+app.delete(myPlaylistRouteID, async (req, res) => {})
 
 // Start Server
 const startServer = async () => {
