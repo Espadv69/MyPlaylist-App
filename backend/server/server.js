@@ -73,7 +73,21 @@ app.post(myPlaylistRoute, async (req, res) => {
 })
 
 // Delete from playlist Endpoint
-app.delete(myPlaylistRouteID, async (req, res) => {})
+app.delete(myPlaylistRouteID, async (req, res) => {
+  try {
+    const { id } = req.params
+    const song = await Playlist.findByIdAndDelete(id)
+
+    if (!song) {
+      return res.status(404).json({ error: 'Song not found' })
+    }
+
+    res.status(200).json(song)
+  } catch (err) {
+    console.error('Error deleting song:', err)
+    res.status(500).json({ error: 'Failed to delete song, server error' })
+  }
+})
 
 // Start Server
 const startServer = async () => {
