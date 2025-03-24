@@ -65,6 +65,12 @@ const MyPlaylist = () => {
     }
   }
 
+  // Confirm deletion of a song
+  const confirmDelete = (songId) => {
+    setSongToDelete(songId)
+    setShowModal(true)
+  }
+
   // Render the playlist when the component mounts
   useEffect(() => {
     fetchPlaylist()
