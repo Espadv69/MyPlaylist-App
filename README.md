@@ -112,7 +112,7 @@ We welcome contributions to improve the project! To contribute:
 
 This project is licensed under the ISC License.
 
-## Screenshot
+## Screenshots
 
 ### Main
 ![Project Preview](./imagesPreview/myPlaylist.png)
