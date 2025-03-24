@@ -15,11 +15,11 @@ const PlaylistSchema = new mongoose.Schema({
   },
   album: {
     type: String,
-    required: true,
+    default: undefined,
   },
   duration: {
     type: String,
-    required: true,
+    default: undefined,
   },
   youtubeId: {
     type: String,
